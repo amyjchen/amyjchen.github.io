@@ -1,0 +1,80 @@
+body {
+	background-color: #333333;
+}
+
+a {
+	color: #FFC0CB;
+	text-decoration: none;
+}
+
+@keyframes vibrate {
+	0% {margin: 6px;}
+	25% {margin: 5px;}
+	50% {margin: 4px}
+	75% {margin: 5px}
+	100% {margin: 6px;}
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.image {
+	display: inline-block;
+	margin: 5px;
+}
+
+.imagev {
+	display: inline-block;
+	margin: 5px;
+	animation-name: vibrate;
+	animation-duration: 0.25s;
+	animation-iteration-count: infinite;
+}
+
+.title {
+	color: white;
+	text-align: center;
+	font-family: 'Helvetica Neue';
+	font-size: 210px;
+	font-weight: 100;
+}
+
+.credits {
+	color: white;
+	text-align: center;
+	font-family: 'Helvetica Neue';
+	font-size: 30px;
+	font-weight: 100;
+}
+
+.awards {
+	color: white;
+	text-align: left;
+	font-family: 'Helvetica Neue';
+	font-size: 30px;
+	font-weight: 100;
+}
+
+.blurb {
+	color: white; /*#D1D1D1;*/
+	display: block;
+	text-align: justify;
+	font-family: 'Helvetica Neue';
+	font-weight: 200;
+	width: 800px;
+	font-size: 24px;
+}
+
+.focus {
+	color: white;
+	font-size: 32px;
+}
+
+.subhead {
+	font-size: 42px;
+	font-style: italic;
+}
