@@ -1,6 +1,5 @@
 body {
     background-image: url("peonies.jpg");
-    min-height: 500px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,19 +16,16 @@ body {
 }
 
 #bodybox {
-	display: inline-block;
-	position: absolute;
 	background-color: white;
-	width: 80%;
-	height: 100%;
-	opacity: 0.5;
+	width: 75%;
+	height: 1000px;
+	opacity: 0.75;
 }
 
 h1 {
 	font-family: "Helvetica Neue";
 	font-size: 150px;
     color: black;
-    opacity: 1.0;
     font-weight: 100;
 }
 
@@ -38,7 +34,7 @@ h1 {
 	font-size: 100px;
 	font-weight: 100;
 	text-align: left;
-	margin-left: 130px;
+	margin-left: 90px;
 }
 
 a {
