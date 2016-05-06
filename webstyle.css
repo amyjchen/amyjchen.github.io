@@ -27,20 +27,19 @@ h1 {
 	font-size: 150px;
     color: black;
     font-weight: 100;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .text {
+	display: inline-block;
 	font-family: "Helvetica Neue";
 	font-size: 100px;
 	font-weight: 100;
 	text-align: left;
-	margin-left: 90px;
+	width: 80%;
 }
 
 a {
 	text-decoration: none;
-}
-
-div {
-
 }
