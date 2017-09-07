@@ -10,6 +10,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
 </head>
 
+<script>
+function FMP() {
+    if (performance && performance.mark) { 
+        performance.mark("first-meaningful-paint"); 
+    }
+}
+</script>
+	
 <body>
 	<div class="jumbotron text-center" style ="background-image: url('beagle.png');
 background-size: cover;">
