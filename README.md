@@ -1,2 +1,0 @@
-# amyjchen.github.io
-website
