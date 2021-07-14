@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4a930e0d.chunk.css",
+    "main.js": "/static/js/main.91a4aa86.chunk.js",
+    "main.js.map": "/static/js/main.91a4aa86.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.997f409a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.997f409a.js.map",
+    "static/js/2.a6ce1d47.chunk.js": "/static/js/2.a6ce1d47.chunk.js",
+    "static/js/2.a6ce1d47.chunk.js.map": "/static/js/2.a6ce1d47.chunk.js.map",
+    "static/js/3.c2e21544.chunk.js": "/static/js/3.c2e21544.chunk.js",
+    "static/js/3.c2e21544.chunk.js.map": "/static/js/3.c2e21544.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.4a930e0d.chunk.css.map": "/static/css/main.4a930e0d.chunk.css.map",
+    "static/js/2.a6ce1d47.chunk.js.LICENSE.txt": "/static/js/2.a6ce1d47.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/Jost-900-BlackItalic.e53e7774.ttf",
+    "static/media/art_photo.a7cfc2b9.png": "/static/media/art_photo.a7cfc2b9.png",
+    "static/media/code_photo.2967d950.png": "/static/media/code_photo.2967d950.png",
+    "static/media/logo.1d5725b8.svg": "/static/media/logo.1d5725b8.svg",
+    "static/media/write_photo.ba362d40.png": "/static/media/write_photo.ba362d40.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.997f409a.js",
+    "static/js/2.a6ce1d47.chunk.js",
+    "static/css/main.4a930e0d.chunk.css",
+    "static/js/main.91a4aa86.chunk.js"
+  ]
+}
