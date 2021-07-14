@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-100-Hairline.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-100-HairlineItalic.ttf);
+  font-weight: 100;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-200-Thin.ttf);
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-200-ThinItalic.ttf);
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-300-Light.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-300-LightItalic.ttf);
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-400-Book.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-400-BookItalic.ttf);
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-500-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-500-MediumItalic.ttf);
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-600-Semi.ttf);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-600-SemiItalic.ttf);
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-700-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-700-BoldItalic.ttf);
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-800-Heavy.ttf);
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-800-HeavyItalic.ttf);
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-900-Black.ttf);
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Jost;
+  src: url(./Jost/TrueType/Jost-900-BlackItalic.ttf);
+  font-weight: 900;
+  font-style: italic;
+}
