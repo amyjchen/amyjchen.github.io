@@ -47,6 +47,27 @@ const ExtraPadding = styled.div`
   height: 10px;
 `;
 
+const InternalIcon = ({ 
+  icon,
+  url, 
+  sameTab = false,
+  text,
+} : 
+FontAwesomeIconProps & {
+  url: string,
+  sameTab?: boolean,
+  text: string,
+}) => (
+  <IconWrapper>
+    <Link to={url} target={sameTab ? "_top" : "_blank"}>
+      <IconWithText>
+        <FontAwesomeIcon size="lg" icon={icon} color="#cc735a"/>
+        <LinkSubtitle>{text}</LinkSubtitle>
+      </IconWithText>
+    </Link>
+  </IconWrapper>
+);
+
 const HeaderIcon = ({ 
   icon,
   url, 
@@ -83,8 +104,8 @@ const Header = () => {
       </>}
       <ExtraPadding/>
       <IconsWrapper>
-        <HeaderIcon icon={faHome} text="home" url="/" sameTab />
-        <HeaderIcon icon={faFileAlt} text="resume" url="resume" sameTab />
+        <InternalIcon icon={faHome} text="home" url="/" sameTab />
+        <InternalIcon icon={faFileAlt} text="resume" url="resume" sameTab />
         <HeaderIcon icon={faEnvelope} text="email" url="mailto:me@amyjchen.com"/>
         <HeaderIcon icon={faImages} text="portfolio" url="https://amyjchen.myportfolio.com/"/>
         <HeaderIcon icon={faLinkedin} text="linkedin" url="https://www.linkedin.com/in/amyjchen"/>
