@@ -10,8 +10,8 @@ import { Project } from '../../../data/projects';
 import { format, isSameYear } from 'date-fns';
 import { skillsToParentheses } from '../../../utils/skillsFormatter';
 
-const ProjectSection = ({projects} : {projects : Project[]}) => {
-  const getDate = (start_date : Date, completion_date?: Date) => {
+const ProjectSection = ({ projects }: { projects: Project[] }) => {
+  const getDate = (start_date: Date, completion_date?: Date) => {
     if (!completion_date) {
       if (isSameYear(start_date, Date.now())) {
         return `${format(start_date, 'MMM yyyy').toLowerCase()} - ongoing`;
@@ -25,26 +25,26 @@ const ProjectSection = ({projects} : {projects : Project[]}) => {
   }
   return (
     <Category name="projects">
-        {projects.map((p) => (
-          <SubSubSection>
-            <InlineHeadline>
-              <Body>
-                {p.title.toUpperCase()}
-              </Body>
-              <Subtitle>
-                {` `}{` `}{` | `}
-              </Subtitle>
-              <Subtitle>
-                {getDate(p.start_date, p.completion_date)}
-              </Subtitle>
-            </InlineHeadline>
-            <Description>
-              <Body>
-                {p.description}{skillsToParentheses(p.skills)} 
-              </Body>
-            </Description>
-          </SubSubSection>
-        ))}
+      {projects.map((p) => (
+        <SubSubSection key={p.title}>
+          <InlineHeadline>
+            <Body>
+              {p.title.toUpperCase()}
+            </Body>
+            <Subtitle>
+              {` `}{` `}{` | `}
+            </Subtitle>
+            <Subtitle>
+              {getDate(p.start_date, p.completion_date)}
+            </Subtitle>
+          </InlineHeadline>
+          <Description>
+            <Body>
+              {p.description}{skillsToParentheses(p.skills)}
+            </Body>
+          </Description>
+        </SubSubSection>
+      ))}
     </Category>
   );
 };
