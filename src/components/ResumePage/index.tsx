@@ -138,6 +138,7 @@ const ResumePage = () => {
           <Resume
             experiences={selectedExperiences}
             projects={selectedProjects}
+            skills={selectedSkills}
           />
         </PDFViewer>
       }

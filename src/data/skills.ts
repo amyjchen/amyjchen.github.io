@@ -79,7 +79,7 @@ const css: Skill = {
 const ruby: Skill = {
   name: 'Ruby',
   type: SkillType.language,
-  level: 0,
+  level: 1,
   background_color: "#820C02",
   text_color: "#EDA895",
 };

@@ -27,7 +27,7 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
           <Subtitle>{e.location.toLowerCase()}</Subtitle>
         </Byline>
         {e.bullets?.map((b) => (
-          <Description>
+          <Description key={b.text}>
             <Body>— </Body>
             <Bullet>
               <Body>
