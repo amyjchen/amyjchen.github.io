@@ -5,7 +5,7 @@ import projects from './projects';
 import skills from './skills';
 
 const data = {
-  about: 'Full-stack developer, artist, and writer. Striving to learn as much as possible to make positive change.',
+  about: 'Full-stack developer striving to learn as much as possible to make positive change.',
   education,
   experiences,
   projects,

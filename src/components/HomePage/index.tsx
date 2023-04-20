@@ -1,4 +1,3 @@
-import React from 'react';
 import { isDesktop } from 'react-device-detect';
 import styled from 'styled-components';
 import art from '../../assets/images/art_photo.png';
@@ -11,7 +10,7 @@ const HomePageWrapper = styled.div`
 `;
 
 const MissionWrapper = styled.div`
-  padding: 0px ${isDesktop ? `10vw` : `8vw`};
+  padding: 0px ${isDesktop ? `18vw` : `8vw`};
   text-align: left;
 `;
 
@@ -38,17 +37,17 @@ const HomePage = () => {
       </MissionWrapper>
       <ImageGrid>
         <GridSection>
-          <Image src={art}/>
+          <Image src={art} />
           <h3>ART</h3>
           interaction, installation, and performance.
         </GridSection>
         <GridSection>
-          <Image src={write}/>
+          <Image src={write} />
           <h3>WRITE</h3>
           poetry, short stories, letters, blogs, comics, etc.
         </GridSection>
         <GridSection>
-          <Image src={code}/>
+          <Image src={code} />
           <h3>CODE</h3>
           full-stack software engineer.
         </GridSection>

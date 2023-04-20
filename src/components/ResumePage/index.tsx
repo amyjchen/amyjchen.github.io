@@ -53,6 +53,7 @@ const GenerateButton = styled.button`
 
 const FilterButton = styled.button`
   min-width: 100px;
+  margin: 0px 5px;
 `;
 
 const ExtraPadding = styled.div`
@@ -61,9 +62,8 @@ const ExtraPadding = styled.div`
 
 // todo: custom selection => custom resume generation
 const ResumePage = () => {
-  const [ selectedSkills, setSelectedSkills ] = useState(Object.values(skills));
-  const [ hideDeselected, setHideDeselected ] = useState(false);
-
+  const [selectedSkills, setSelectedSkills] = useState(Object.values(skills));
+  const [hideDeselected, setHideDeselected] = useState(false);
 
   const isSelected = (s: Skill) => !selectedSkills.includes(s);
   const toggleSkill = (s: Skill) => {
@@ -91,50 +91,54 @@ const ResumePage = () => {
     <ResumeWrapper>
       <FiltersWrapper>
         {isDesktop ? <SearchBar> {
-           Object.values(skills).map((s) => (
-            <SkillTag 
-              skill={s} 
+          Object.values(skills).map((s) => (
+            <SkillTag
+              skill={s}
               isSelected={isSelected}
               inset={!selectedSkills.includes(s)}
               onClick={toggleSkill}
             />
-          )) }
+          ))}
         </SearchBar>
-        : <CenteredText>
+          : <CenteredText>
             You're missing out! Come back on desktop to get the full experience 🙃
           </CenteredText>}
         {/*isDesktop && <GenerateButton> GENERATE RESUME </GenerateButton>*/}
       </FiltersWrapper>
       <FiltersWrapper>
         <FilterButton className={hideDeselected ? "inset" : ''} onClick={() => setHideDeselected(!hideDeselected)}>{hideDeselected ? 'show' : 'hide'} filtered </FilterButton>
+        <FilterButton onClick={() => selectedSkills.length === 0 ? setSelectedSkills(Object.values(skills)) : setSelectedSkills([])}>{selectedSkills.length === 0 ? 'select all' : 'clear selection'}</FilterButton>
       </FiltersWrapper>
 
       <CenteredText><h2>Experience</h2></CenteredText>
       <CardSection className="card-container">
-        {filteredExperiences.map((experience) => <ExperienceCard experience={experience} toggleSkill={toggleSkill} isSelected={isSelected}/>)}
+        {filteredExperiences.map((experience) => <ExperienceCard experience={experience} toggleSkill={toggleSkill} isSelected={isSelected} />)}
       </CardSection>
 
       <CenteredText><h2>Projects</h2></CenteredText>
       <CardSection className="card-container">
-        {filteredProjects.map((project) => <ProjectCard project={project} toggleSkill={toggleSkill} isSelected={isSelected}/>)}
+        {filteredProjects.map((project) => <ProjectCard project={project} toggleSkill={toggleSkill} isSelected={isSelected} />)}
       </CardSection>
 
       <CardSection className="card-container">
-          <CenteredText>
-            <h2>Education</h2>
-            Studied things that go <i>beep boop</i> for a few too many years, <br/>
-            ran a poetry collective, and published a literary magazine at Stanford University.
-          </CenteredText>
-          <CenteredText>
-            <h2>Misc</h2>
-            I love cooking and <a href="https://www.youtube.com/watch?v=SVyLlFezj2E">smokin' meats</a>. <br/>
-            Verbally fluent in Mandarin Chinese; used to know French. 
-          </CenteredText>
+        <CenteredText>
+          <h2>Education</h2>
+          Studied things that go <i>beep boop</i> for a few too many years, <br />
+          ran a poetry collective, and published a literary magazine at Stanford University.
+        </CenteredText>
+        <CenteredText>
+          <h2>Misc</h2>
+          I love cooking and <a href="https://www.youtube.com/watch?v=SVyLlFezj2E">smokin' meats</a>. <br />
+          Verbally fluent in Mandarin Chinese; used to know French.
+        </CenteredText>
       </CardSection>
-      <ExtraPadding/>
-      {isDesktop && 
-        <PDFViewer style={{width: '100%', height: '100vh', border: 'none'}}>
-          <Resume/>
+      <ExtraPadding />
+      {isDesktop &&
+        <PDFViewer style={{ width: '100%', height: '100vh', border: 'none' }}>
+          <Resume
+            experiences={selectedExperiences}
+            projects={selectedProjects}
+          />
         </PDFViewer>
       }
     </ResumeWrapper>

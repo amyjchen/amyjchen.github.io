@@ -1,6 +1,5 @@
 import { Document, Page } from '@react-pdf/renderer';
 import { format } from 'date-fns';
-import React from 'react';
 import data from '../../data/data';
 import styles from '../../styles';
 import {
@@ -28,12 +27,12 @@ import { Skill } from '../../data/skills';
 // - optional selections
 
 type Props = {
- about?: string,
- education?: Education[],
- experiences?: Experience[],
- projects?: Project[],
- publications?: Publication[],
- skills?: Skill[],
+  about?: string,
+  education?: Education[],
+  experiences?: Experience[],
+  projects?: Project[],
+  publications?: Publication[],
+  skills?: Skill[],
 }
 
 const Resume = ({
@@ -43,16 +42,16 @@ const Resume = ({
   projects = data.projects.filter((p) => !p.completion_date || p.completion_date?.getFullYear() > 2018),
   publications = data.publications,
   skills = data.skills,
-} : Props) => (
+}: Props) => (
   <Document title={`amy_chen_resume_generated_${format(new Date(), 'dMMMMy')}`}>
     <Page size="LETTER" style={styles.page}>
-      <Header name="Amy J. Chen" details='amyjchen.com   |   me@amyjchen.com   |   @artwritecode'/>
-      <AboutSection about={about}/>
-      {education.length > 0 && <EducationSection education={education}/>}
-      <ExperienceSection experiences={experiences}/>
-      {projects.length > 0 && <ProjectSection projects={projects}/>}
-      {publications.length > 0 && <PublicationSection publications={publications}/>}
-      <SkillsSection skills={skills}/>
+      <Header name="Amy J. Chen" details='amyjchen.com   |   me@amyjchen.com   |   @artwritecode' />
+      <AboutSection about={about} />
+      {education.length > 0 && <EducationSection education={education} />}
+      <ExperienceSection experiences={!!experiences.length ? experiences : data.experiences} />
+      {projects.length > 0 && <ProjectSection projects={projects} />}
+      {publications.length > 0 && <PublicationSection publications={publications} />}
+      <SkillsSection skills={skills} />
     </Page>
   </Document>
 );

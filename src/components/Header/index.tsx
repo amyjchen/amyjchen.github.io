@@ -47,42 +47,42 @@ const ExtraPadding = styled.div`
   height: 10px;
 `;
 
-const InternalIcon = ({ 
+const InternalIcon = ({
   icon,
-  url, 
+  url,
   sameTab = false,
   text,
-} : 
-FontAwesomeIconProps & {
-  url: string,
-  sameTab?: boolean,
-  text: string,
-}) => (
+}:
+  FontAwesomeIconProps & {
+    url: string,
+    sameTab?: boolean,
+    text: string,
+  }) => (
   <IconWrapper>
     <Link to={url} target={sameTab ? "_top" : "_blank"}>
       <IconWithText>
-        <FontAwesomeIcon size="lg" icon={icon} color="#cc735a"/>
+        <FontAwesomeIcon size="lg" icon={icon} color="#cc735a" />
         <LinkSubtitle>{text}</LinkSubtitle>
       </IconWithText>
     </Link>
   </IconWrapper>
 );
 
-const HeaderIcon = ({ 
+const HeaderIcon = ({
   icon,
-  url, 
+  url,
   sameTab = false,
   text,
-} : 
-FontAwesomeIconProps & {
-  url: string,
-  sameTab?: boolean,
-  text: string,
-}) => (
+}:
+  FontAwesomeIconProps & {
+    url: string,
+    sameTab?: boolean,
+    text: string,
+  }) => (
   <IconWrapper>
     <a href={url} target={sameTab ? "_top" : "_blank"}>
       <IconWithText>
-        <FontAwesomeIcon size="lg" icon={icon} color="#cc735a"/>
+        <FontAwesomeIcon size="lg" icon={icon} color="#cc735a" />
         <LinkSubtitle>{text}</LinkSubtitle>
       </IconWithText>
     </a>
@@ -94,24 +94,24 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Link to="/">
-        {large ? <LargeImage src={logo}/> : <SmallImage src={logo}/>}
+        {large ? <LargeImage src={logo} /> : <SmallImage src={logo} />}
       </Link>
       <h1> Amy J. Chen </h1>
-      { large && <>
-        <p>artist, writer, <code>&&</code> programmer</p>
-        <p>software engineer @ <a href="https://alto.com/">alto pharmacy</a> </p>
-        <p>BS '18 + MS '20 computer science @ stanford</p>
+      {large && <>
+        <p>working on <a href="https://ollie.fyi" target='_blank'>ollie.fyi</a></p>
+        <p>creative, people-driven software engineer </p>
+        <p>stanford computer science (B.S. '18, M.S. '20)</p>
       </>}
-      <ExtraPadding/>
+      <ExtraPadding />
       <IconsWrapper>
         <InternalIcon icon={faHome} text="home" url="/" sameTab />
         <InternalIcon icon={faFileAlt} text="resume" url="resume" sameTab />
-        <HeaderIcon icon={faEnvelope} text="email" url="mailto:me@amyjchen.com"/>
-        <HeaderIcon icon={faImages} text="portfolio" url="https://amyjchen.myportfolio.com/"/>
-        <HeaderIcon icon={faLinkedin} text="linkedin" url="https://www.linkedin.com/in/amyjchen"/>
-        <HeaderIcon icon={faGithub} text="github" url="https://github.com/amyjchen/"/>
-        <HeaderIcon icon={faInstagram} text="@artwritecode" url="http://www.instagram.com/artwritecode/"/>
-        <HeaderIcon icon={faUtensils} text="@amyjchen.food" url="https://www.instagram.com/amyjchen.food/"/>
+        <HeaderIcon icon={faEnvelope} text="email" url="mailto:me@amyjchen.com" />
+        <HeaderIcon icon={faImages} text="portfolio" url="https://amyjchen.myportfolio.com/" />
+        <HeaderIcon icon={faLinkedin} text="linkedin" url="https://www.linkedin.com/in/amyjchen" />
+        <HeaderIcon icon={faGithub} text="github" url="https://github.com/amyjchen/" />
+        <HeaderIcon icon={faInstagram} text="@artwritecode" url="http://www.instagram.com/artwritecode/" />
+        <HeaderIcon icon={faUtensils} text="@amyjchen.food" url="https://www.instagram.com/amyjchen.food/" />
       </IconsWrapper>
     </HeaderWrapper>
   );
