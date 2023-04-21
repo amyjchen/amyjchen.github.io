@@ -48,9 +48,9 @@ const Resume = ({
       <Header name="Amy J. Chen" details='amyjchen.com   |   me@amyjchen.com   |   @artwritecode' />
       <AboutSection about={about} />
       {education.length > 0 && <EducationSection education={education} />}
-      <ExperienceSection experiences={!!experiences.length ? experiences : data.experiences} />
+      {experiences.length > 0 && <ExperienceSection experiences={experiences} />}
       {projects.length > 0 && <ProjectSection projects={projects} />}
-      {publications.length > 0 && <PublicationSection publications={publications} />}
+      {publications.length > 0 && false && <PublicationSection publications={publications} />}
       <SkillsSection skills={skills} />
     </Page>
   </Document>

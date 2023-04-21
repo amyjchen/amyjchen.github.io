@@ -9,6 +9,7 @@ import experiences from '../../data/experiences';
 import projects from '../../data/projects';
 import skills, { Skill } from '../../data/skills';
 import SkillTag from './SkillTag';
+import { useResumeContext } from '../contexts/ResumeContext';
 
 const SearchBar = styled.div`
   padding: 15px 20px 10px 20px;
@@ -62,42 +63,26 @@ const ExtraPadding = styled.div`
 
 // todo: custom selection => custom resume generation
 const ResumePage = () => {
-  const [selectedSkills, setSelectedSkills] = useState(Object.values(skills));
-  const [hideDeselected, setHideDeselected] = useState(false);
-
-  const isSelected = (s: Skill) => !selectedSkills.includes(s);
-  const toggleSkill = (s: Skill) => {
-    if (selectedSkills.includes(s)) {
-      setSelectedSkills(selectedSkills.filter((skill) => skill !== s));
-    } else {
-      setSelectedSkills([...selectedSkills, s]);
-    }
-  }
-
-  const selectedExperiences = experiences.filter((e) => {
-    const experienceSkills = dedupeSkills(e.bullets, e.skills);
-    return experienceSkills.some((s) => selectedSkills.includes(s));
-  });
-
-  const selectedProjects = projects.filter((p) => p.skills?.some((s) => selectedSkills.includes(s)));
-
-  const deselectedExperiences = experiences.filter((e) => !selectedExperiences.includes(e));
-  const deselectedProjects = projects.filter((p) => !selectedProjects.includes(p));
-
-  const filteredExperiences = hideDeselected ? selectedExperiences : selectedExperiences.concat(deselectedExperiences);
-  const filteredProjects = hideDeselected ? selectedProjects : selectedProjects.concat(deselectedProjects);
+  const {
+    allClear,
+    selectAll,
+    clearAll,
+    selectedSkills,
+    selectedExperiences,
+    selectedProjects,
+    filteredExperiences,
+    filteredProjects,
+    hideDeselected,
+    setHideDeselected,
+    loading,
+  } = useResumeContext();
 
   return (
     <ResumeWrapper>
       <FiltersWrapper>
         {isDesktop ? <SearchBar> {
           Object.values(skills).map((s) => (
-            <SkillTag
-              skill={s}
-              isSelected={isSelected}
-              inset={!selectedSkills.includes(s)}
-              onClick={toggleSkill}
-            />
+            <SkillTag skill={s} key={s.name} />
           ))}
         </SearchBar>
           : <CenteredText>
@@ -107,17 +92,17 @@ const ResumePage = () => {
       </FiltersWrapper>
       <FiltersWrapper>
         <FilterButton className={hideDeselected ? "inset" : ''} onClick={() => setHideDeselected(!hideDeselected)}>{hideDeselected ? 'show' : 'hide'} filtered </FilterButton>
-        <FilterButton onClick={() => selectedSkills.length === 0 ? setSelectedSkills(Object.values(skills)) : setSelectedSkills([])}>{selectedSkills.length === 0 ? 'select all' : 'clear selection'}</FilterButton>
+        <FilterButton onClick={() => allClear ? selectAll() : clearAll()}>{allClear ? 'select all' : 'clear all'}</FilterButton>
       </FiltersWrapper>
 
       <CenteredText><h2>Experience</h2></CenteredText>
       <CardSection className="card-container">
-        {filteredExperiences.map((experience) => <ExperienceCard experience={experience} toggleSkill={toggleSkill} isSelected={isSelected} />)}
+        {filteredExperiences.map((experience) => <ExperienceCard experience={experience} key={`${experience.title}-${experience.organization}`} />)}
       </CardSection>
 
       <CenteredText><h2>Projects</h2></CenteredText>
       <CardSection className="card-container">
-        {filteredProjects.map((project) => <ProjectCard project={project} toggleSkill={toggleSkill} isSelected={isSelected} />)}
+        {filteredProjects.map((project) => <ProjectCard project={project} key={project.title} />)}
       </CardSection>
 
       <CardSection className="card-container">
@@ -133,7 +118,7 @@ const ResumePage = () => {
         </CenteredText>
       </CardSection>
       <ExtraPadding />
-      {isDesktop &&
+      {isDesktop && !loading &&
         <PDFViewer style={{ width: '100%', height: '100vh', border: 'none' }}>
           <Resume
             experiences={selectedExperiences}

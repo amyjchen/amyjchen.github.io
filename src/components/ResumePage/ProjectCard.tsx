@@ -4,12 +4,13 @@ import { formatDate } from '../../utils/dateFormatter';
 import { Skill } from '../../data/skills';
 import SkillTag from './SkillTag';
 import { BulletWrapper, BulletText, Card, Row, Column, SkillTagContainer, Headline, Byline } from './Shared';
+import { useResumeContext } from '../contexts/ResumeContext';
 
-const ProjectCard = ({project, toggleSkill, isSelected} : { project: Project, inset?: boolean, toggleSkill: (s: Skill) => void, isSelected: (s: Skill) => boolean}) => {
+const ProjectCard = ({ project }: { project: Project, inset?: boolean }) => {
   const { title, start_date, completion_date, description, skills } = project;
-  const selectedSkills = skills?.filter((s) => !isSelected(s)) || [];
+  const { selectedProjects, toggleProject } = useResumeContext();
   return (
-    <Card inset={selectedSkills.length === 0}>
+    <Card inset={!selectedProjects.includes(project)} onClick={() => toggleProject(project)}>
       <Column>
         <Row>
           <Headline>{title.toUpperCase()}</Headline>
@@ -20,7 +21,7 @@ const ProjectCard = ({project, toggleSkill, isSelected} : { project: Project, in
         </BulletWrapper>
         <SkillTagContainer>
           {skills?.map((s) => (
-            <SkillTag skill={s} onClick={toggleSkill} isSelected={isSelected}/>         
+            <SkillTag skill={s} key={`${title}-${s.name}`} />
           ))}
         </SkillTagContainer>
       </Column>

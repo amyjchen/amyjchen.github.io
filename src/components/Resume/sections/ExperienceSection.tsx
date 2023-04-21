@@ -13,11 +13,10 @@ import { Experience } from '../../../data/experiences';
 import { formatDate } from '../../../utils/dateFormatter';
 import { skillsToParentheses } from '../../../utils/skillsFormatter';
 
-
 const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
   <Category name="experience">
     {experiences.map((e) => (
-      <SubSubSection key={`${e.title}-${e.organization}`}>
+      <SubSubSection key={`${e.title}-${e.organization}-resume`}>
         <Headline>
           <Body>{e.title.toUpperCase()}</Body>
           <Body>{e.organization.toUpperCase()}</Body>
@@ -27,7 +26,7 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
           <Subtitle>{e.location.toLowerCase()}</Subtitle>
         </Byline>
         {e.bullets?.map((b) => (
-          <Description key={b.text}>
+          <Description key={`${b.specifier}-${b.text}-resume`}>
             <Body>— </Body>
             <Bullet>
               <Body>
@@ -35,9 +34,11 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
               </Body>
             </Bullet>
           </Description>
-        ))}
+        )
+        )}
       </SubSubSection>
-    ))}
+    )
+    )}
   </Category>
 );
 
