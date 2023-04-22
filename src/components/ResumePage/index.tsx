@@ -68,6 +68,7 @@ const ResumePage = () => {
     selectAll,
     clearAll,
     selectedSkills,
+    resumeSkills,
     selectedExperiences,
     selectedProjects,
     filteredExperiences,
@@ -123,7 +124,7 @@ const ResumePage = () => {
           <Resume
             experiences={selectedExperiences}
             projects={selectedProjects}
-            skills={selectedSkills}
+            skills={resumeSkills}
           />
         </PDFViewer>
       }

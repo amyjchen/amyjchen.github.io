@@ -9,6 +9,7 @@ type State = {
   clearAll: () => void,
   isSelectedSkill: (s: Skill) => boolean,
   selectedSkills: Skill[],
+  resumeSkills: Skill[],
   selectedProjects: Project[],
   selectedExperiences: Experience[],
   filteredExperiences: Experience[],
@@ -27,6 +28,7 @@ const initialState: State = {
   clearAll: () => undefined,
   isSelectedSkill: () => false,
   selectedSkills: [],
+  resumeSkills: [],
   selectedProjects: [],
   selectedExperiences: [],
   filteredExperiences: [],
@@ -99,6 +101,13 @@ export const ResumeProvider = ({ children }: { children: ReactNode }) => {
 
   const filteredExperiences = hideDeselected ? selectedExperiences : selectedExperiences.concat(experiences.filter((e) => !selectedExperiences.includes(e)));
   const filteredProjects = hideDeselected ? selectedProjects : selectedProjects.concat(projects.filter((p) => !selectedProjects.includes(p)));
+  const otherSkills = selectedExperiences.reduce((acc: Skill[], curr) => {
+    return acc.concat(dedupeSkills(curr.bullets, curr.skills));
+  }, []).concat(selectedProjects.reduce((acc: Skill[], curr) => {
+    return acc.concat(curr.skills || []);
+  }, []));
+
+  const resumeSkills = selectedSkills.concat(otherSkills).filter((value, index, self) => self.indexOf(value) === index);
 
   const selectAll = () => {
     setLoading(true);
@@ -125,6 +134,7 @@ export const ResumeProvider = ({ children }: { children: ReactNode }) => {
         selectAll,
         isSelectedSkill,
         selectedSkills,
+        resumeSkills,
         toggleSkill,
         selectedProjects,
         selectedExperiences,
