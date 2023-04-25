@@ -10,7 +10,13 @@ import { Project } from '../../../data/projects';
 import { format, isSameYear } from 'date-fns';
 import { skillsToParentheses } from '../../../utils/skillsFormatter';
 
-const ProjectSection = ({ projects }: { projects: Project[] }) => {
+const ProjectSection = ({
+  projects,
+  hidden
+}: {
+  projects: Project[],
+  hidden: { [key: string]: 'min_bullets' | 'hide_bullets' | 'hide' },
+}) => {
   const getDate = (start_date: Date, completion_date?: Date) => {
     if (!completion_date) {
       if (isSameYear(start_date, Date.now())) {

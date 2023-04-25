@@ -67,7 +67,6 @@ const ResumePage = () => {
     allClear,
     selectAll,
     clearAll,
-    selectedSkills,
     resumeSkills,
     selectedExperiences,
     selectedProjects,
@@ -76,6 +75,7 @@ const ResumePage = () => {
     hideDeselected,
     setHideDeselected,
     loading,
+    hidden,
   } = useResumeContext();
 
   return (
@@ -125,6 +125,7 @@ const ResumePage = () => {
             experiences={selectedExperiences}
             projects={selectedProjects}
             skills={resumeSkills}
+            hidden={hidden}
           />
         </PDFViewer>
       }

@@ -18,13 +18,7 @@ import { Publication } from '../../data/publications';
 import { Skill } from '../../data/skills';
 
 // TODO
-// - move all this work into my own personal website
-// - finish adding experiences
-// - finish adding projects
-// - associate projects with experiences
-// - classes
 // - limit objects to one page
-// - optional selections
 
 type Props = {
   about?: string,
@@ -33,6 +27,7 @@ type Props = {
   projects?: Project[],
   publications?: Publication[],
   skills?: Skill[],
+  hidden?: { [key: string]: 'min_bullets' | 'hide_bullets' | 'hide' },
 }
 
 const Resume = ({
@@ -42,14 +37,15 @@ const Resume = ({
   projects = data.projects.filter((p) => !p.completion_date || p.completion_date?.getFullYear() > 2018),
   publications = data.publications,
   skills = data.skills,
+  hidden = {},
 }: Props) => (
   <Document title={`amy_chen_resume_generated_${format(new Date(), 'dMMMMy')}`}>
     <Page size="LETTER" style={styles.page}>
       <Header name="Amy J. Chen" details='amyjchen.com   |   me@amyjchen.com   |   @artwritecode' />
       <AboutSection about={about} />
       {education.length > 0 && <EducationSection education={education} />}
-      {experiences.length > 0 && <ExperienceSection experiences={experiences} />}
-      {projects.length > 0 && <ProjectSection projects={projects} />}
+      {experiences.length > 0 && <ExperienceSection experiences={experiences} hidden={hidden} />}
+      {projects.length > 0 && <ProjectSection projects={projects} hidden={hidden} />}
       {publications.length > 0 && false && <PublicationSection publications={publications} />}
       <SkillsSection skills={skills} />
     </Page>

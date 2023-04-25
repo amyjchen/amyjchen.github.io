@@ -13,9 +13,15 @@ import { Experience } from '../../../data/experiences';
 import { formatDate } from '../../../utils/dateFormatter';
 import { skillsToParentheses } from '../../../utils/skillsFormatter';
 
-const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
+const ExperienceSection = ({
+  experiences,
+  hidden
+}: {
+  experiences: Experience[],
+  hidden: { [key: string]: 'min_bullets' | 'hide_bullets' | 'hide' },
+}) => (
   <Category name="experience">
-    {experiences.map((e) => (
+    {experiences.map((e) => hidden[e.key] === 'hide' ? null : (
       <SubSubSection key={`${e.title}-${e.organization}-resume`}>
         <Headline>
           <Body>{e.title.toUpperCase()}</Body>
@@ -25,7 +31,12 @@ const ExperienceSection = ({ experiences }: { experiences: Experience[] }) => (
           <Subtitle>{formatDate(e.start_date)} - {!!e.end_date ? formatDate(e.end_date) : 'present'} </Subtitle>
           <Subtitle>{e.location.toLowerCase()}</Subtitle>
         </Byline>
-        {e.bullets?.map((b) => (
+        {e.link && hidden[e.key] !== 'hide_bullets' &&
+          <Byline>
+            <Subtitle>{e.link}</Subtitle>
+          </Byline>
+        }
+        {hidden[e.key] !== 'hide_bullets' && e.bullets?.map((b) => hidden[e.key] === 'min_bullets' && b.optional ? null : (
           <Description key={`${b.specifier}-${b.text}-resume`}>
             <Body>— </Body>
             <Bullet>

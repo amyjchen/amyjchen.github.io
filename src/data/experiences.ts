@@ -5,9 +5,16 @@ export type Bullet = {
   text: string,
   skills?: Skill[],
   notes?: string,
+  optional?: boolean, // do not show on short mode
+};
+
+export type Lengths = {
+  full_length: number,
+  short_length: number,
 };
 
 export type Experience = {
+  key: string,
   title: string,
   link?: string,
   organization: string,
@@ -16,9 +23,11 @@ export type Experience = {
   end_date?: Date,
   bullets?: Array<Bullet>,
   skills?: Array<Skill>,
+  lengths: Lengths,
 };
 
 const Ollie: Experience = {
+  key: 'Ollie',
   title: 'Founder/Solo Developer',
   link: 'https://ollie.fyi/',
   organization: 'Ollie Studio Lab',
@@ -51,10 +60,15 @@ const Ollie: Experience = {
     skills.design,
     skills.public_speaking,
     skills.adobe,
-  ]
+  ],
+  lengths: {
+    full_length: 7,
+    short_length: 7,
+  },
 }
 
 const Dorsia: Experience = {
+  key: 'Dorsia',
   title: 'Lead Software Engineer',
   link: 'https://www.dorsia.com/',
   organization: 'Dorsia',
@@ -63,10 +77,7 @@ const Dorsia: Experience = {
   end_date: new Date(2022, 4, 3),
   bullets: [
     {
-      text: 'First in-house engineering hire',
-    },
-    {
-      text: 'Set up analytics integrations for React Native app',
+      text: 'Set up analytics integrations and made code improvements to reduce tech debt.',
       skills: [
         skills.react_native,
         skills.segment,
@@ -74,25 +85,21 @@ const Dorsia: Experience = {
       ]
     },
     {
-      text: 'Facilitated onboarding and integration of a second dev shop into the team'
+      text: 'Interviewed candidates and reevaluated engineering hiring process and goals. Facilitated onboarding and integration of a second dev shop into the team',
     },
     {
-      text: 'Wrote onboarding documents, documented existing code, and set up PR review processes to encourage code consistency across multiple teams'
+      text: 'Made documentation improvements and set up review processes to encourage code consistency across teams',
+      optional: true,
     },
-    {
-      text: 'Interviewed candidates and reevaluated engineering hiring process and goals',
-    },
-    {
-      text: 'Refactored overloaded and unnecessary code',
-      skills: [
-        skills.react_native,
-      ]
-    }
   ],
-
+  lengths: {
+    full_length: 10,
+    short_length: 8,
+  },
 };
 
 const Alto: Experience = {
+  key: 'Alto',
   title: 'Full-Stack Software Engineer (L4) — Providers Team',
   link: 'https://alto.com/',
   organization: 'Alto Pharmacy',
@@ -104,9 +111,13 @@ const Alto: Experience = {
     // led project to update clinic UI to support multiple hierarchical types of clinics (parent, child, individual). 
     // led project to display dynamic third-party forms on our internal operations tool. 
     // contributed to projects to support a type of contract between Alto and providers, refactor the clinic page of our internal tool, create better service boundaries, and integrate with a third-party service. 
-
     {
-      text: 'Led a project to display dyanamic third-party forms in an operations tool and a project to add support for hierarchical clinics and inherited settings. Mentored new hires',
+      text: 'Led projects to display dyanamic third-party forms in an operations tool and to add support for hierarchical clinics and inherited settings',
+      skills: [
+        skills.react,
+        skills.javascript,
+        skills.ruby_on_rails,
+      ],
     },
     {
       text: 'Worked with a team of four to build a new mobile app and component library',
@@ -125,73 +136,53 @@ const Alto: Experience = {
         skills.flow,
       ],
     },
-    /*
-    {
-      specifier: 'Web',
-      text: ': led two projects and played key roles in building three features to support provider needs',
-      skills: [
-        skills.react,
-        skills.ruby_on_rails,
-        skills.javascript,
-        skills.flow,
-        skills.storybook,
-      ],
-    },
-    {
-      specifier: 'Mobile',
-      text: ': worked with a team of four to build a new app. Wrote multiple screens and components for the app and component library. Presented work in a public-facing tech talk',
-      skills: [
-        skills.react_native,
-        skills.storybook,
-        skills.javascript,
-        skills.typescript,
-      ]
-    },*/
     {
       text: 'Coordinated Alto\'s sponsorship, recruiting, and attendance at TAPIA 2021',
     },
     {
-      text: 'Supported recruiting efforts by presenting work in a public tech talk, writing a post for the engineering blog, and conducting intro calls and coffee chats with hiring candidates'
+      text: 'Supported recruiting efforts by presenting work in a public tech talk, writing a post for the engineering blog, and conducting intro calls and coffee chats with hiring candidates. Mentored newly hired engineers',
+      optional: true,
     }
   ],
-  /*
-  bullets: [
-    {
-      text: 'Played a critical role in developing a new component library and mobile app',
-      skills: [
-        skills.react_native,
-      ]
-    },
-    {
-      text: 'Worked across two web applications and one mobile app to support medical providers needs',
-      skills: [
-        skills.react,
-        skills.react_native,
-        skills.ruby_on_rails,
-        skills.ruby,
-      ]
-    },
-  ],
-  */
   skills: [
     skills.react,
     skills.react_native,
     skills.ruby,
     skills.writing,
   ],
+  lengths: {
+    full_length: 12,
+    short_length: 10,
+  },
 };
 
 
-const OneConcernPtTwo: Experience = {
-  title: 'Software Engineer',
+const OneConcern: Experience = {
+  key: '1C',
+  title: 'Software Engineer (Contractor + 2x Summer Intern)',
   link: 'https://www.oneconcern.com/',
   organization: 'One Concern',
   location: 'Palo Alto + Menlo Park, CA',
-  start_date: new Date(2018, 8, 20),
+  start_date: new Date(2018, 5, 25),
   end_date: new Date(2019, 8, 20),
   bullets: [
     {
-      text: 'Wrote UI components for a new disaster mitigation product. Set up Storybook and wrote stories for every component of the app',
+      text: 'Took ownership of two features of the Seismic product. Presented a feature at a Town Hall and to a client',
+      skills: [
+        skills.react,
+        skills.javascript,
+        skills.ruby_on_rails,
+        skills.python,
+        skills.postgreSQL,
+        skills.mapbox,
+      ],
+    },
+    {
+      text: 'Coordinated across data science, design, and customer success to define objectives and complete features for product demo deadlines',
+      optional: true,
+    },
+    {
+      text: 'Wrote React components for a new disaster mitigation product. Set up Storybook and wrote stories for every component of the app',
       skills: [
         skills.react,
         skills.typescript,
@@ -205,22 +196,31 @@ const OneConcernPtTwo: Experience = {
       skills: [
         skills.react,
         skills.apollo,
-      ]
+      ],
+      optional: true,
     },
     {
       text: `Wrote a task and template for spritesheet generation`,
       skills: [
         skills.grunt,
         skills.mustache,
-      ]
+      ],
+      optional: true,
     }
   ],
   skills: [
+    skills.mapbox,
+    skills.public_speaking,
     skills.graphQL,
-  ]
+  ],
+  lengths: {
+    full_length: 12,
+    short_length: 8,
+  }
 };
 
 const TA: Experience = {
+  key: 'TA',
   title: 'Teaching Assistant',
   organization: 'Stanford University',
   location: 'Stanford, CA',
@@ -264,43 +264,16 @@ const TA: Experience = {
     skills.react,
     skills.cpp,
   ],
+  lengths: {
+    full_length: 7,
+    short_length: 7,
+  }
 };
 
-const OneConcernPtOne: Experience = {
-  title: 'Software Engineering Intern',
-  link: 'https://www.oneconcern.com/',
-  organization: 'One Concern',
-  location: 'Palo Alto, CA',
-  start_date: new Date(2018, 5, 25),
-  end_date: new Date(2018, 8, 20),
-  bullets: [
-    {
-      text: 'Took ownership of two features of the Seismic product. Presented a feature at a Town Hall and to a client',
-      skills: [
-        skills.react,
-        skills.javascript,
-        skills.ruby_on_rails,
-        skills.python,
-        skills.postgreSQL,
-        skills.mapbox,
-      ],
-    },
-    /*
-{
-  text: 'Presented a new feature at a Town Hall and to a client',
-},
-*/
 
-    {
-      text: 'Coordinated across data science, design, and customer success to define objectives and complete features for product demo deadlines',
-    }
-  ],
-  skills: [
-    skills.mapbox,
-  ]
-};
 
 const eBay: Experience = {
+  key: 'ebay',
   title: 'Software Engineering Intern',
   link: 'https://www.ebay.com/',
   organization: 'eBay',
@@ -313,19 +286,27 @@ const eBay: Experience = {
       skills: [
         skills.javascript,
         skills.chrome_extensions,
-      ]
+      ],
+      optional: true,
     },
     {
       text: "1st place in eBay’s Intern Hackathon: Presented at All Hands and to CEO. Identified and proposed solution to an issue affecting women of color on the site", // Team of eight"
+      optional: true,
     },
     {
-      text: "3rd place in eBay’s Hack Week: Proposed new feature and branding strategy focusing on small businesses"
+      text: "3rd place in eBay’s Hack Week: Proposed new feature and branding strategy focusing on small businesses",
+      optional: true,
     }
   ],
+  lengths: {
+    full_length: 8,
+    short_length: 4,
+  }
 };
 
 /*
 const AcxiomLabs : Experience = {
+  key: 'acxiom',
   title: 'R&D Intern',
   organization: 'Acxiom Labs',
   location: 'Redwood City, CA',
@@ -335,6 +316,7 @@ const AcxiomLabs : Experience = {
 */
 
 const Drone: Experience = {
+  key: 'drone',
   title: 'Human-Drone Interaction Research Intern',
   organization: 'Stanford University',
   location: 'Stanford, CA',
@@ -347,15 +329,18 @@ const Drone: Experience = {
     skills.adobe,
     skills.public_speaking,
   ],
+  lengths: {
+    full_length: 3,
+    short_length: 3,
+  }
 }
 
 const experiences = [
   Ollie,
   Dorsia,
   Alto,
-  OneConcernPtTwo,
   TA,
-  OneConcernPtOne,
+  OneConcern,
   eBay,
   // AcxiomLabs,
   Drone,

@@ -1,14 +1,18 @@
+import { Lengths } from "./experiences";
 import skills, { Skill } from "./skills";
 export type Project = {
+  key: string,
   title: string,
   start_date: Date,
   completion_date?: Date,
   description: string,
   skills?: Skill[],
   notes?: string,
+  lengths: Lengths,
 };
 
-const resume_generator : Project = {
+const resume_generator: Project = {
+  key: 'Resume',
   title: 'Resume Generator',
   start_date: new Date(2021, 0, 29),
   completion_date: new Date(2021, 6, 12),
@@ -17,33 +21,30 @@ const resume_generator : Project = {
     skills.typescript,
     skills.react,
   ],
+  lengths: {
+    full_length: 2,
+    short_length: 2,
+  },
 };
 
-/*
-const listful : Project = {
-  title: 'Listful',
-  start_date: new Date(2020, 10, 1),
-  description: 'Web application for list sharing',
-  skills: [
-    skills.typescript,
-    skills.react,
-    skills.python,
-  ],
-};
-*/
-
-const iQueue : Project = {
+const iQueue: Project = {
+  key: 'iQueue',
   title: 'iQueue',
   start_date: new Date(2017, 8, 25),
   completion_date: new Date(2018, 2, 23),
   description: 'Mobile app for efficient queueing. Groups students into small, topic-based groups to make office hours more collaborative and efficient',
   skills: [
-    skills.react_native, 
-    skills.python,  // TODO: heroku
+    skills.react_native,
+    skills.python,
   ],
+  lengths: {
+    full_length: 3,
+    short_length: 3,
+  },
 }
 
-const orion : Project = {
+const orion: Project = {
+  key: 'Orion',
   title: 'Orion',
   start_date: new Date(2018, 1, 23),
   completion_date: new Date(2018, 2, 23),
@@ -51,22 +52,30 @@ const orion : Project = {
   skills: [
     skills.unity,
     skills.adobe,
-  ]
+  ],
+  lengths: {
+    full_length: 2,
+    short_length: 2,
+  },
 }
 
-const speedi : Project = {
+const speedi: Project = {
+  key: 'Speedi',
   title: 'Speedi!',
   start_date: new Date(2017, 5, 19),
   completion_date: new Date(2017, 8, 8),
   description: 'Chrome DevTools Extension for web developers. Shows user-centric times with insights into possible problems',
   skills: [
     skills.chrome_extensions,
-  ]
+  ],
+  lengths: {
+    full_length: 3,
+    short_length: 3,
+  },
 }
 
 const projects = [
-  resume_generator, 
-  // listful, 
+  resume_generator,
   iQueue,
   orion,
   speedi,
