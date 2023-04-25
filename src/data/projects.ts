@@ -28,8 +28,8 @@ const ollie_fyi: Project = {
     skills.tailwind,
   ],
   lengths: {
-    full_length: 2,
-    short_length: 2,
+    full_length: 5,
+    short_length: 5,
   }
 }
 
@@ -44,8 +44,8 @@ const resume_generator: Project = {
     skills.react,
   ],
   lengths: {
-    full_length: 2,
-    short_length: 2,
+    full_length: 3,
+    short_length: 3,
   },
 };
 
@@ -76,8 +76,8 @@ const orion: Project = {
     skills.adobe,
   ],
   lengths: {
-    full_length: 2,
-    short_length: 2,
+    full_length: 3,
+    short_length: 3,
   },
 }
 
@@ -91,8 +91,8 @@ const speedi: Project = {
     skills.chrome_extensions,
   ],
   lengths: {
-    full_length: 3,
-    short_length: 3,
+    full_length: 4,
+    short_length: 4,
   },
 }
 
