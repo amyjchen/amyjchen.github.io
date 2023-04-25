@@ -119,7 +119,7 @@ const ResumePage = () => {
         </CenteredText>
       </CardSection>
       <ExtraPadding />
-      {isDesktop && !loading &&
+      {(isDesktop && !loading) ?
         <PDFViewer style={{ width: '100%', height: '100vh', border: 'none' }}>
           <Resume
             experiences={selectedExperiences}
@@ -127,7 +127,8 @@ const ResumePage = () => {
             skills={resumeSkills}
             hidden={hidden}
           />
-        </PDFViewer>
+        </PDFViewer> :
+        <div style={{ width: '100%', height: '100vh' }}></div>
       }
     </ResumeWrapper>
   );

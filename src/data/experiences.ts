@@ -35,7 +35,7 @@ const Ollie: Experience = {
   start_date: new Date(2022, 5, 3),
   bullets: [
     {
-      text: 'Designed and built a web application for saving and sharing collections of anything online',
+      text: 'Designed and built a consumer software-as-a-service product for saving and sharing collections of anything online',
       skills: [
         skills.react,
         skills.nextjs,
@@ -77,7 +77,7 @@ const Dorsia: Experience = {
   end_date: new Date(2022, 4, 3),
   bullets: [
     {
-      text: 'Set up analytics integrations and made code improvements to reduce tech debt.',
+      text: 'Set up analytics integrations and refactored code to follow best practices',
       skills: [
         skills.react_native,
         skills.segment,

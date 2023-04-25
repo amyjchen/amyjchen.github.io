@@ -151,7 +151,7 @@ const firebase: Skill = {
 const aws_lambda: Skill = {
   name: 'AWS Lambda',
   type: SkillType.tool,
-  level: 2,
+  level: 1,
   background_color: "#252F3E",
   text_color: "#FF9900"
 };
@@ -170,6 +170,22 @@ const stripe: Skill = {
   level: 2,
   background_color: "#635bff",
   text_color: '#FFFFFF',
+}
+
+const segment: Skill = {
+  name: 'Segment',
+  type: SkillType.tool,
+  level: 2,
+  background_color: "#52BD94",
+  text_color: "#FFFFFF",
+}
+
+const mixpanel: Skill = {
+  name: 'Mixpanel',
+  type: SkillType.tool,
+  level: 2,
+  background_color: "#7856FF",
+  text_color: "#FFFFFF",
 }
 
 const ruby_on_rails: Skill = {
@@ -207,7 +223,7 @@ const tailwind: Skill = {
 const flow: Skill = {
   name: 'Flow',
   type: SkillType.tool,
-  level: 1,
+  level: 3,
   background_color: "#E8BD36",
   text_color: '#FFFFFF',
 }
@@ -215,7 +231,7 @@ const flow: Skill = {
 const apollo: Skill = {
   name: 'Apollo',
   type: SkillType.framework,
-  level: 2,
+  level: 3,
   background_color: "#3f20ba",
   text_color: '#FFFFFF',
 }
@@ -223,7 +239,7 @@ const apollo: Skill = {
 const graphQL: Skill = {
   name: 'GraphQL',
   type: SkillType.language,
-  level: 2,
+  level: 3,
   text_color: "#e10098",
   background_color: "#171e26",
 }
@@ -231,7 +247,7 @@ const graphQL: Skill = {
 const grunt: Skill = {
   name: 'Grunt',
   type: SkillType.tool,
-  level: 2,
+  level: 3,
   background_color: "#e48632",
   text_color: '#FFFFFF',
 }
@@ -239,7 +255,7 @@ const grunt: Skill = {
 const mustache: Skill = {
   name: 'Mustache',
   type: SkillType.tool,
-  level: 2,
+  level: 3,
   background_color: "#000000",
   text_color: "#ededed",
 }
@@ -247,7 +263,7 @@ const mustache: Skill = {
 const chrome_extensions: Skill = {
   name: 'Chrome Extensions',
   type: SkillType.platform,
-  level: 2,
+  level: 3,
   background_color: "rgba(66,133,244,1)",
   text_color: '#FFFFFF',
 }
@@ -255,7 +271,7 @@ const chrome_extensions: Skill = {
 const mapbox: Skill = {
   name: 'Mapbox',
   type: SkillType.tool,
-  level: 2,
+  level: 3,
   background_color: "#4264FB",
   text_color: '#FFFFFF',
 }
@@ -263,7 +279,7 @@ const mapbox: Skill = {
 const processing: Skill = {
   name: 'Processing',
   type: SkillType.tool,
-  level: 2,
+  level: 3,
   background_color: "#0c2033",
   text_color: '#FFFFFF',
 }
@@ -271,14 +287,14 @@ const processing: Skill = {
 const public_speaking: Skill = {
   name: 'Public Speaking',
   type: SkillType.soft_skill,
-  level: 88,
+  level: 2,
   background_color: "#bfa6ff",
 };
 
 const art: Skill = {
   name: 'Installation & Interactive Art',
   type: SkillType.soft_skill,
-  level: 88,
+  level: 2,
   background_color: "#ad7e18",
   text_color: '#FFFFFF',
 };
@@ -286,7 +302,7 @@ const art: Skill = {
 const writing: Skill = {
   name: 'Writing/Editing',
   type: SkillType.soft_skill,
-  level: 88,
+  level: 2,
   background_color: "#2b6334",
   text_color: "#d5edd9",
 };
@@ -294,7 +310,7 @@ const writing: Skill = {
 const design: Skill = {
   name: 'Design',
   type: SkillType.soft_skill,
-  level: 88,
+  level: 2,
   background_color: "#2b2b2b",
   text_color: '#e8e8e8',
 };
@@ -302,7 +318,7 @@ const design: Skill = {
 const adobe: Skill = {
   name: 'Photoshop, Illustrator & InDesign',
   type: SkillType.soft_skill,
-  level: 88,
+  level: 2,
   background_color: "#ED2224",
   text_color: '#FFFFFF',
 };
@@ -310,26 +326,11 @@ const adobe: Skill = {
 const unity: Skill = {
   name: 'Unity',
   type: SkillType.tool,
-  level: 88,
+  level: 4,
   background_color: "#222c37",
   text_color: '#FFFFFF',
 }
 
-const segment: Skill = {
-  name: 'Segment',
-  type: SkillType.tool,
-  level: 88,
-  background_color: "#52BD94",
-  text_color: "#FFFFFF",
-}
-
-const mixpanel: Skill = {
-  name: 'Mixpanel',
-  type: SkillType.tool,
-  level: 88,
-  background_color: "#7856FF",
-  text_color: "#FFFFFF",
-}
 
 
 const skills = {
@@ -364,13 +365,13 @@ const skills = {
   mapbox,
   segment,
   mixpanel,
+  stripe,
   unity,
   public_speaking,
   art,
   writing,
   design,
   adobe,
-  stripe,
 };
 
 export default skills;

@@ -4,7 +4,7 @@ import experiences, { Experience } from "../../data/experiences";
 import { dedupeSkills } from "../ResumePage/ExperienceCard";
 import projects, { Project } from "../../data/projects";
 
-const LENGTH_THRESHOLD = 45;
+const LENGTH_THRESHOLD = 44;
 const MIN_EXPERIENCE_LENGTH = 3;
 
 enum MODES {
