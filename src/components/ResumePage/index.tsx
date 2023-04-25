@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
 import { isDesktop } from 'react-device-detect';
 import styled from 'styled-components';
 import Resume from '../Resume';
 import { PDFViewer } from '@react-pdf/renderer';
-import ExperienceCard, { dedupeSkills } from './ExperienceCard';
+import ExperienceCard from './ExperienceCard';
 import ProjectCard from './ProjectCard';
-import experiences from '../../data/experiences';
-import projects from '../../data/projects';
-import skills, { Skill } from '../../data/skills';
+import skills from '../../data/skills';
 import SkillTag from './SkillTag';
 import { useResumeContext } from '../contexts/ResumeContext';
 
@@ -41,15 +38,6 @@ const CardSection = styled.div`
   padding: 10px;
   display: grid;
   justify-items: stretch;
-`;
-
-const GenerateButton = styled.button`
-  font-family: Jost;
-  font-weight: 700;
-  height: 50px;
-  color: white;
-  background: linear-gradient(90deg, #ff5353 0%, #FFE600 50%, #33d0ff 100%);
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25), -2px -2px 4px rgba(256, 256, 256, 0.9);
 `;
 
 const FilterButton = styled.button`
@@ -89,7 +77,6 @@ const ResumePage = () => {
           : <CenteredText>
             You're missing out! Come back on desktop to get the full experience 🙃
           </CenteredText>}
-        {/*isDesktop && <GenerateButton> GENERATE RESUME </GenerateButton>*/}
       </FiltersWrapper>
       <FiltersWrapper>
         <FilterButton className={hideDeselected ? "inset" : ''} onClick={() => setHideDeselected(!hideDeselected)}>{hideDeselected ? 'show' : 'hide'} filtered </FilterButton>

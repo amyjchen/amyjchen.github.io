@@ -1,7 +1,5 @@
-import React from 'react';
 import { Project } from '../../data/projects';
 import { formatDate } from '../../utils/dateFormatter';
-import { Skill } from '../../data/skills';
 import SkillTag from './SkillTag';
 import { BulletWrapper, BulletText, Card, Row, Column, SkillTagContainer, Headline, Byline } from './Shared';
 import { useResumeContext } from '../contexts/ResumeContext';

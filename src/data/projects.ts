@@ -11,6 +11,28 @@ export type Project = {
   lengths: Lengths,
 };
 
+const ollie_fyi: Project = {
+  key: 'Ollie',
+  title: 'Ollie.fyi',
+  start_date: new Date(2022, 5, 3),
+  description: 'A consumer software-as-a-service product for saving and sharing anything online, complete with social previews and embedded content, collaborative modes, comments, a reporting system, and paid subscriptions',
+  skills: [
+    skills.react,
+    skills.nextjs,
+    skills.javascript,
+    skills.typescript,
+    skills.firebase,
+    skills.aws_lambda,
+    skills.aws_cloudfront,
+    skills.stripe,
+    skills.tailwind,
+  ],
+  lengths: {
+    full_length: 2,
+    short_length: 2,
+  }
+}
+
 const resume_generator: Project = {
   key: 'Resume',
   title: 'Resume Generator',
@@ -75,6 +97,7 @@ const speedi: Project = {
 }
 
 const projects = [
+  ollie_fyi,
   resume_generator,
   iQueue,
   orion,

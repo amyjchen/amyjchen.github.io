@@ -59,7 +59,7 @@ const InternalIcon = ({
     text: string,
   }) => (
   <IconWrapper>
-    <Link to={url} target={sameTab ? "_top" : "_blank"}>
+    <Link to={url} target={sameTab ? "_top" : "_blank"} rel="noreferrer">
       <IconWithText>
         <FontAwesomeIcon size="lg" icon={icon} color="#cc735a" />
         <LinkSubtitle>{text}</LinkSubtitle>
@@ -80,7 +80,7 @@ const HeaderIcon = ({
     text: string,
   }) => (
   <IconWrapper>
-    <a href={url} target={sameTab ? "_top" : "_blank"}>
+    <a href={url} target={sameTab ? "_top" : "_blank"} rel="noreferrer">
       <IconWithText>
         <FontAwesomeIcon size="lg" icon={icon} color="#cc735a" />
         <LinkSubtitle>{text}</LinkSubtitle>

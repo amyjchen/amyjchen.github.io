@@ -43,7 +43,7 @@ const ExperienceCard = ({ experience }: { experience: Experience, inset?: boolea
           </Row>
           {link &&
             <Row>
-              <Byline><a href={link} target='_blank'>{link}</a></Byline>
+              <Byline><a href={link} target='_blank rel="noreferrer"'>{link}</a></Byline>
             </Row>}
           <div>
             {bullets?.map((b) => (
