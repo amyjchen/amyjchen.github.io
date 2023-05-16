@@ -112,7 +112,7 @@ const Alto: Experience = {
     // led project to display dynamic third-party forms on our internal operations tool. 
     // contributed to projects to support a type of contract between Alto and providers, refactor the clinic page of our internal tool, create better service boundaries, and integrate with a third-party service. 
     {
-      text: 'Led projects to display dyanamic third-party forms in an operations tool and to add support for hierarchical clinics and inherited settings',
+      text: 'Led projects to display dynamic third-party forms in an operations tool and to add support for hierarchical clinics and inherited settings',
       skills: [
         skills.react,
         skills.javascript,
