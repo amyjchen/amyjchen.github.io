@@ -9,6 +9,7 @@ import Header from './components/Header';
 import HomePage from './components/HomePage';
 import ResumePage from './components/ResumePage';
 import { ResumeProvider } from './components/contexts/ResumeContext';
+import JobAlert from './components/shared/niche/JobAlert';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         </Route>
       </Switch>
       <Footer />
+      <JobAlert />
     </Router>
   );
 }

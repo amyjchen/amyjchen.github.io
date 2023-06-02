@@ -17,6 +17,8 @@ const SearchBar = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex: 1;
+  max-height: 6rem;
+  overflow: auto;
 `;
 
 const CenteredText = styled.div`
@@ -68,15 +70,15 @@ const ResumePage = () => {
 
   return (
     <ResumeWrapper>
+      {!isDesktop && <CenteredText>
+        You're missing out! Come back on desktop to get the full experience 🙃
+      </CenteredText>}
       <FiltersWrapper>
-        {isDesktop ? <SearchBar> {
+        <SearchBar> {
           Object.values(skills).map((s) => (
             <SkillTag skill={s} key={s.name} />
           ))}
         </SearchBar>
-          : <CenteredText>
-            You're missing out! Come back on desktop to get the full experience 🙃
-          </CenteredText>}
       </FiltersWrapper>
       <FiltersWrapper>
         <FilterButton className={hideDeselected ? "inset" : ''} onClick={() => setHideDeselected(!hideDeselected)}>{hideDeselected ? 'show' : 'hide'} filtered </FilterButton>
