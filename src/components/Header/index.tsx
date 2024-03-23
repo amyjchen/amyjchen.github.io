@@ -98,8 +98,8 @@ const Header = () => {
       </Link>
       <h1> Amy J. Chen </h1>
       {large && <>
-        <p>working on <a href="https://ollie.fyi" target='_blank'>ollie.fyi</a></p>
-        <p>creative, people-driven software engineer </p>
+        <p>creative, people-driven software engineer at <a href="https://discord.com/" target='_blank'>discord</a></p>
+        <p>cookin' <a href="https://ollie.fyi" target='_blank'>ollie.fyi</a> on the backburner</p>
         <p>stanford computer science (B.S. '18, M.S. '20)</p>
       </>}
       <ExtraPadding />

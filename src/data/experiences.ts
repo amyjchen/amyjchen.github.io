@@ -26,6 +26,25 @@ export type Experience = {
   lengths: Lengths,
 };
 
+const Discord: Experience = {
+  key: 'Discord',
+  title: 'Software Engineer',
+  link: 'https://discord.com/',
+  organization: 'Discord',
+  location: 'San Francisco, CA',
+  start_date: new Date(2023, 7, 7),
+  lengths: {
+    full_length: 3,
+    short_length: 3,
+  },
+  skills: [
+    skills.react,
+    skills.typescript,
+    skills.cpp,
+    skills.python
+  ]
+}
+
 const Ollie: Experience = {
   key: 'Ollie',
   title: 'Founder/Solo Developer',
@@ -62,8 +81,8 @@ const Ollie: Experience = {
     skills.adobe,
   ],
   lengths: {
-    full_length: 7,
-    short_length: 7,
+    full_length: 6,
+    short_length: 6,
   },
 }
 
@@ -336,6 +355,7 @@ const Drone: Experience = {
 }
 
 const experiences = [
+  Discord,
   Ollie,
   Dorsia,
   Alto,

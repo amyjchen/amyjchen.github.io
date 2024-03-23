@@ -200,12 +200,21 @@ export const ResumeProvider = ({ children }: { children: ReactNode }) => {
           lines = lines - 1;
           break;
       }
-      console.log(explines, projlines, lines);
+      //console.log(explines, projlines, lines);
     }
-    console.log(nextHidden);
+    //console.log(nextHidden);
     setHidden(nextHidden);
     setTimeout(() => setLoading(false), 500);
   }, [selectedExperiences, selectedProjects]);
+
+  // on mount, clear experiences before 2019
+  useEffect(() => {
+    const FILTER_YEAR = 2018
+    const dateFilteredExperiences = selectedExperiences.filter(e => e.start_date.getFullYear() > FILTER_YEAR || (e.end_date && e.end_date?.getFullYear() > FILTER_YEAR));
+    const dateFilteredProjects = selectedProjects.filter(p => p.start_date.getFullYear() > FILTER_YEAR || (p.completion_date && p.completion_date?.getFullYear() > FILTER_YEAR));
+    setSelectedExperiences(dateFilteredExperiences);
+    setSelectedProjects(dateFilteredProjects);
+  }, [])
 
   const allClear = !selectedSkills.length && !selectedExperiences.length && !selectedProjects.length;
 
